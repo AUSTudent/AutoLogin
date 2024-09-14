@@ -19,9 +19,13 @@ def autoLogin():
 
 def get_public_ip():
     try:
-        response = requests.get('http://ifconfig.me/ip')  # 发送GET请求获取IP地址
+        response = requests.get('http://ifconfig.me/ip')  # 发送GET请求到获取IP地址
         if response.status_code == 200:
-            return response.text.strip()  # 返回文本形式的IP地址
+            #return response.text.strip() # 返回文本形式的IP地址
+            ip_address = response.text.strip()
+            ip_parts = ip_address.split('.')  # 分割IP地址
+            ip_sum = sum(int(part) for part in ip_parts)  # 将各部分转换为整数并求和
+            return ip_sum
         else:
             print("Error: Unable to fetch IP address.")
             return None
@@ -33,10 +37,11 @@ if __name__ == '__main__':
     autoLogin()
     #建议少用稳定突破的IP，仅推荐在下载大量内容时手动使用
     while True:
-        if get_public_ip() == "xxx.xxx.xxx.xxx":  #你的常用IP地址    
+        if 000 <= get_public_ip() <=  000:  #你的常用ip范围，建议获取Get_IP值后上下浮动一下  
             autoLogin()
-            public_ip = get_public_ip()
-            print(f"Your public IP address is: {public_ip}")
+            sleep(1)
+            public_ip_Num = get_public_ip()
+            print(f"Your public IP address_NumSum is: {public_ip_Num}")
         else :
             print(get_public_ip())
             break
