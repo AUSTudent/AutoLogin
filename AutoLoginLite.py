@@ -19,7 +19,7 @@ def autoLogin():
 
 def get_public_ip():
     try:
-        response = requests.get('http://ifconfig.me/ip')  # 发送GET请求到ipify.org
+        response = requests.get('http://ifconfig.me/ip')  # 发送GET请求到获取IP地址
         if response.status_code == 200:
             #return response.text.strip() # 返回文本形式的IP地址
             ip_address = response.text.strip()
