@@ -19,7 +19,7 @@
 ```bash
 git clone -b lite https://github.com/flipped-1121/AutoLogin.git
 cd AutoLogin
-pip install -r requirements.txt
+pip install requests
 ```
 
 ## 运行和调试
