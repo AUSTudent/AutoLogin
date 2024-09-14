@@ -7,11 +7,11 @@ def autoLogin():
     url = "http://10.255.0.19/drcom/login"
     try:
         once = requests.get(url=url,
-                            params={'callback': 'dr1003', 'DDDDD': "2023307506@cmcc", 'upass': "AUST@2004",
+                            params={'callback': 'dr1003', 'DDDDD': "学号@运营商", 'upass': "密码",
                                     '0MKKey': 123456})
         sleep(2)
         twice = requests.get(url=url,
-                             params={'callback': 'dr1003', 'DDDDD': "2023307506@cmcc", 'upass': "AUST@2004",
+                             params={'callback': 'dr1003', 'DDDDD': "学号@运营商", 'upass': "密码",
                                      '0MKKey': 123456})
         return "自动登陆成功"
     except:
@@ -31,8 +31,9 @@ def get_public_ip():
 
 if __name__ == '__main__':
     autoLogin()
+    #建议少用稳定突破的IP，仅推荐在下载大量内容时手动使用
     while True:
-        if get_public_ip() == "211.141.172.154":  #你的常用IP地址    
+        if get_public_ip() == "xxx.xxx.xxx.xxx":  #你的常用IP地址    
             autoLogin()
             public_ip = get_public_ip()
             print(f"Your public IP address is: {public_ip}")
